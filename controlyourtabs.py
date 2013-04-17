@@ -315,8 +315,8 @@ class ControlYourTabsPlugin(GObject.Object, Gedit.WindowActivatable):
 					i = 1
 				next = tabs[(tabs.index(cur) + i) % tlen]
 
-				model[stack.index(cur)][self.SELECTED_TAB_COLUMN] = False
-				model[stack.index(next)][self.SELECTED_TAB_COLUMN] = True
+				model[tabs.index(cur)][self.SELECTED_TAB_COLUMN] = False
+				model[tabs.index(next)][self.SELECTED_TAB_COLUMN] = True
 
 				if is_tab_key:
 					view = self._view
