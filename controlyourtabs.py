@@ -291,7 +291,7 @@ class ControlYourTabsPlugin(GObject.Object, Gedit.WindowActivatable):
 		is_ctrl = state == Gdk.ModifierType.CONTROL_MASK
 		is_ctrl_shift = state == Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK
 		is_tab_key = key in ('ISO_Left_Tab', 'Tab')
-		is_page_key = key in ('Page_Up', 'Page_Down')
+		is_page_key = False #key in ('Page_Up', 'Page_Down')
 		is_up_dir = key in ('ISO_Left_Tab', 'Page_Up')
 
 		if not (((is_ctrl or is_ctrl_shift) and is_tab_key) or (is_ctrl and is_page_key)):
@@ -302,7 +302,7 @@ class ControlYourTabsPlugin(GObject.Object, Gedit.WindowActivatable):
 		if cur:
 			notebook = cur.get_parent()
 			stack, model = notebooks[notebook]
-			if is_tab_key:
+			if is_page_key:
 				tabs = stack
 			else:
 				tabs = notebook.get_children()
